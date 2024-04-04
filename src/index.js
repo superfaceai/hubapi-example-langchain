@@ -2,9 +2,10 @@ const { ChatOpenAI } = require("@langchain/openai");
 const { ToolMessage } = require("@langchain/core/messages");
 const axios = require('axios')
 
-OPENAI_API_KEY = "<your-openai-api-key>";
-SUPERFACE_AUTH_TOKEN = "<your-superface-auth-token>";
-SUPERFACE_BASE_URL = "https://pod.superface.ai/api/hub";
+const OPENAI_API_KEY = "<your-openai-api-key>";
+const SUPERFACE_AUTH_TOKEN = "<your-superface-auth-token>";
+const SUPERFACE_BASE_URL = "https://pod.superface.ai/api/hub";
+const PROMPT = "What's the weather like in Prague and in Kosice?";
 
 (async () => {
 
@@ -53,7 +54,7 @@ SUPERFACE_BASE_URL = "https://pod.superface.ai/api/hub";
 
   // Ask initial question that requires multiple tool calls
   const res = await chat.invoke([
-    ["human", "What's the weather like in Prague and in Kosice?"],
+    ["human", PROMPT],
   ]);
 
   // Format the results from calling the tool calls back to OpenAI as ToolMessages
@@ -69,7 +70,7 @@ SUPERFACE_BASE_URL = "https://pod.superface.ai/api/hub";
 
   // Send the results back as the next step in the conversation
   const finalResponse = await chat.invoke([
-    ["human", "What's the weather like in Prague and in Kosice?"],
+    ["human", PROMPT],
     res,
     ...(await Promise.all(toolMessages ?? []))
   ]);
