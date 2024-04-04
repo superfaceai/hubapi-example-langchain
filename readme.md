@@ -29,6 +29,20 @@ By default, there is a prompt that will make two calls to Superface's Hub API to
 const PROMPT = "What's the weather like in Prague and in Kosice?";
 ```
 
+### Run it
+
+```
+npm run example
+```
+
+After a moment you will see responses from the Hub API, followed by the final result. Something like this:
+
+```
+SUPERFACE RESPONSE: {"status":"success","assistant_hint":"Format the result in 'result' field to the user. If the user asked for a specific format, respect it","result":{"description":"Partly cloudy","feelsLike":17,"temperature":17}}
+SUPERFACE RESPONSE: {"status":"success","assistant_hint":"Format the result in 'result' field to the user. If the user asked for a specific format, respect it","result":{"description":"Partly cloudy","feelsLike":15,"temperature":15}}
+The current weather in Prague is partly cloudy with a temperature of 15°C, and in Kosice, it is also partly cloudy with a temperature of 17°C.
+```
+
 ## For more information
 
 The full breakdown can be found here: [https://superface.ai/docs/api/examples/langchain](https://superface.ai/docs/api/examples/langchain)
