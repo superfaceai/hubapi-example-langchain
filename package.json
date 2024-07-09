@@ -2,16 +2,18 @@
   "name": "langchain-example",
   "version": "1.0.0",
   "description": "An example of Superface's Hub API to call external functions using OpenAI and Node.js",
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "example": "node src/index.js",
+    "example": "node --env-file=.env src/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Martyn Davies <m@superface.ai>",
   "license": "MIT",
   "dependencies": {
-    "@langchain/openai": "^0.0.26",
-    "axios": "^1.6.8",
-    "langchain": "^0.1.31"
+    "@langchain/core": "^0.2.14",
+    "@langchain/openai": "^0.2.1",
+    "axios": "^1.7.2",
+    "colors": "^1.4.0"
   }
 }
